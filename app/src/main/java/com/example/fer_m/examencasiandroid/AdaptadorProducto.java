@@ -29,17 +29,17 @@ public class AdaptadorProducto extends BaseAdapter{
     }
     @Override
     public int getCount() {
-        return 0;
+        return listProductos.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return listProductos.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return listProductos.get(position).getId();
     }
 
     @Override

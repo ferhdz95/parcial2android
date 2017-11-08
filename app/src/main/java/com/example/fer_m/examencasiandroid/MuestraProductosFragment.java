@@ -19,9 +19,9 @@ public class MuestraProductosFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.show_product_fragment, container, false);
-        /*ListView listaDatos = (ListView) view.findViewById(R.id.lstDatos);
-        mi=new AdaptadorInventario(getActivity(),Lista);
-        listaDatos.setAdapter(mi);*/
+        ListView listaProductos = (ListView) view.findViewById(R.id.list_product);
+        MainActivity.adaptadorProducto =new AdaptadorProducto(getActivity(),MainActivity.producto);
+        listaProductos.setAdapter(MainActivity.adaptadorProducto);
         count++;
 
         return view;
