@@ -7,6 +7,7 @@
     tools:context="com.example.fer_m.examencasiandroid.search_product">
 
     <android.support.design.widget.TextInputLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textInputLayout">

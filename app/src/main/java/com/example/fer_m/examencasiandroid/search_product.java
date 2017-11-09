@@ -1,6 +1,7 @@
 package com.example.fer_m.examencasiandroid;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,12 @@ public class search_product extends AppCompatActivity {
                         mdatabase.findProduct(nombre.getText().toString()));
                 listaProductos.setAdapter(busqueda);
                 listaProductos.deferNotifyDataSetChanged();
+                if (busqueda.getCount() > 0){
+                    Snackbar.make(v, "Se encontraron: "+ busqueda.getCount()
+                            + " Resultado(s)", Snackbar.LENGTH_LONG).show();
+                }else{
+                    Snackbar.make(v, "Se encontraron 0 resultados", Snackbar.LENGTH_LONG).show();
+                }
             }
         });
     }
