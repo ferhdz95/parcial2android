@@ -1,5 +1,6 @@
 package com.example.fer_m.examencasiandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -44,12 +46,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        producto.add(new Producto(1, "Papaps", "Con aire", 56));
+        producto.add(new Producto(1, "Papas", "Con aire", 56));
 
-        MuestraProductosFragment productos = new MuestraProductosFragment();
+        /*MuestraProductosFragment productos = new MuestraProductosFragment();
         android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.fragment_frame, productos);
-        t.commit();
+        t.commit();*/
     }
 
     @Override
@@ -90,15 +92,20 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.lista_productos) {
+            MuestraProductosFragment productos = new MuestraProductosFragment();
+            android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
+            t.replace(R.id.fragment_frame, productos);
+            t.commit();
+        } else if (id == R.id.add_producto) {
+            Intent intent = new Intent(this, add_product.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.search_producto) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.acercade) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.ayudaproducto) {
 
         }
 
