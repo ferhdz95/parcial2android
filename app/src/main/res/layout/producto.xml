@@ -18,6 +18,7 @@
                 android:id="@+id/nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.3"
                 android:padding="10dp"
                 android:text="Nombre" />
 
@@ -26,7 +27,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Cantidad" />
+                android:text="Cantidad"
+                android:layout_weight="0.4"/>
 
         </TableRow>
 
@@ -38,6 +40,7 @@
                 android:id="@+id/descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="10dp"
                 android:text="Descripcion" />
         </TableRow>

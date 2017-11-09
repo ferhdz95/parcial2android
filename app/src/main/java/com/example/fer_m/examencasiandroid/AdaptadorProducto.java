@@ -50,7 +50,7 @@ public class AdaptadorProducto extends BaseAdapter{
         TextView cantidad = (TextView) vista.findViewById(R.id.cantidad);
         TextView descripcion = (TextView) vista.findViewById(R.id.descripcion);
         Nombre.setText(listProductos.get(position).getNombre().toString());
-        cantidad.setText(String.valueOf(listProductos.get(position).getCantidad()));
+        cantidad.setText(String.valueOf(listProductos.get(position).getCantidad()) + " unidad(es)");
         descripcion.setText(listProductos.get(position).getDescripcion().toString());
 
         return vista;

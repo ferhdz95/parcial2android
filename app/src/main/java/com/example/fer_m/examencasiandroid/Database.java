@@ -76,20 +76,22 @@ public class Database extends SQLiteOpenHelper{
         db.update(TABLE_PRODUCTS, values, COLUMN_ID	+ "	= ?", new String[] { String.valueOf(product.getId())});
     }
 
-    public Producto findProduct(String name){
-        String query = "Select * FROM "	+ TABLE_PRODUCTS + " WHERE " + COLUMN_PRODUCTNAME + " = " + "name";
+    public ArrayList<Producto> findProduct(String nombre){
+        String query = "Select * FROM "	+ TABLE_PRODUCTS + " WHERE " + COLUMN_PRODUCTNAME + " = " + "'"+nombre+"'";
         SQLiteDatabase db = this.getWritableDatabase();
-        Producto mProduct = null;
-        Cursor cursor = db.rawQuery(query,	null);
-        if	(cursor.moveToFirst()){
-            int id = Integer.parseInt(cursor.getString(0));
-            String productName = cursor.getString(1);
-            String productDescription = cursor.getString(2);
-            int productQuantity = Integer.parseInt(cursor.getString(3));
-            mProduct = new Producto(id, productName, productDescription, productQuantity);
+        ArrayList<Producto> storeProducts = new ArrayList<>();
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            do{
+                int id = Integer.parseInt(cursor.getString(0));
+                String name = cursor.getString(1);
+                String description = cursor.getString(2);
+                int quantity = Integer.parseInt(cursor.getString(3));
+                storeProducts.add(new Producto(id, name, description, quantity));
+            }while (cursor.moveToNext());
         }
         cursor.close();
-        return mProduct;
+        return storeProducts;
     }
 
     public void deleteProduct(int id){

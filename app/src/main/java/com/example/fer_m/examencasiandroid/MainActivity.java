@@ -103,8 +103,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.add_producto) {
             Intent intent = new Intent(this, add_product.class);
             startActivity(intent);
+            finish();
 
         } else if (id == R.id.search_producto) {
+            Intent intent = new Intent(this, search_product.class);
+            startActivity(intent);
+            finish();
 
         } else if (id == R.id.acercade) {
 
