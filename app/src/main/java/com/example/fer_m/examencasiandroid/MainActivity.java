@@ -21,12 +21,15 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     static ArrayList<Producto> producto= new ArrayList<>();
     static AdaptadorProducto adaptadorProducto;
+    static Database mdatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mdatabase = new Database(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,12 +49,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        producto.add(new Producto(1, "Papas", "Con aire", 56));
+        //producto.add(new Producto(1, "Papas", "Con aire", 56));
 
-        /*MuestraProductosFragment productos = new MuestraProductosFragment();
+        MuestraProductosFragment productos = new MuestraProductosFragment();
         android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.fragment_frame, productos);
-        t.commit();*/
+        t.commit();
     }
 
     @Override

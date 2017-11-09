@@ -22,7 +22,10 @@ public class add_product extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.producto.add(new Producto(0,nombre.getText().toString(), descripcion.getText().toString(),
+                /*MainActivity.producto.add(new Producto(0,nombre.getText().toString(), descripcion.getText().toString(),
+                        Integer.parseInt(cantidad.getText().toString())));
+                MainActivity.adaptadorProducto.notifyDataSetChanged();*/
+                MainActivity.mdatabase.addProduct(new Producto(0,nombre.getText().toString(), descripcion.getText().toString(),
                         Integer.parseInt(cantidad.getText().toString())));
                 MainActivity.adaptadorProducto.notifyDataSetChanged();
             }

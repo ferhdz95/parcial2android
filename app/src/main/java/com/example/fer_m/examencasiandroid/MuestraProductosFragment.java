@@ -20,9 +20,9 @@ public class MuestraProductosFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.show_product_fragment, container, false);
         ListView listaProductos = (ListView) view.findViewById(R.id.list_product);
-        MainActivity.adaptadorProducto =new AdaptadorProducto(getActivity(),MainActivity.producto);
+        MainActivity.adaptadorProducto =new AdaptadorProducto(getActivity(),MainActivity.mdatabase.listProducts());
         listaProductos.setAdapter(MainActivity.adaptadorProducto);
-        count++;
+        //count++;
 
         return view;
 
